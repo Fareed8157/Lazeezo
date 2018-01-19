@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "651346739842",
+    "firebase_url": "https://sunlit-alloy-192223.firebaseio.com",
+    "project_id": "sunlit-alloy-192223",
+    "storage_bucket": "sunlit-alloy-192223.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651346739842:android:6260881bb7069b1c",
+        "android_client_info": {
+          "package_name": "com.example.fareed.lazeezo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651346739842-aatqgg76afabtbg0dabukutpnl08pduu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fareed.lazeezo",
+            "certificate_hash": "1c0c5562b13da99c226985ed1fe94ca56d99ae37"
+          }
+        },
+        {
+          "client_id": "651346739842-shhd1difp482upioo5et6tvk827drn7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT6jLqs160bgBKBS9vgF0AyKZeNIm1A6s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651346739842-shhd1difp482upioo5et6tvk827drn7l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
