@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.fareed.lazeezo.Common.Common;
 import com.example.fareed.lazeezo.Model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,7 +50,11 @@ public class SignIn extends AppCompatActivity {
                             pd.dismiss();
                             User user=dataSnapshot.child(phone.getText().toString()).getValue(User.class);
                             if(user.getPassword().equals(pass.getText().toString())){
-                                Toast.makeText(SignIn.this, "Sign In Successful", Toast.LENGTH_SHORT).show();
+                                Intent homeIntent=new Intent(SignIn.this,Home.class);
+                                Common.currentUser=user;
+                                startActivity(homeIntent);
+                                finish();
+
                             }else{
                                 Toast.makeText(SignIn.this, "Sign In Failed!\nPlease Insert Correct Credentials", Toast.LENGTH_SHORT).show();
                             }
