@@ -6,81 +6,233 @@
     android:background="@drawable/back_1"
     android:layout_height="match_parent"
     tools:context="com.example.fareed.lazeezo.SignIn">
-
     <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:background="@drawable/transprect"
+
         android:orientation="vertical"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout2">
+        android:id="@+id/linearLayout3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="139dp">
 
 
-        <com.rengwuxian.materialedittext.MaterialEditText
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:text="Get Started"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:text="Just a few details to get you started"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+
+            />
+
+        <AutoCompleteTextView
             android:id="@+id/phone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone Number"
+            android:layout_height="40dp"
             android:text="03060342843"
-            android:textColor="@color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="34sp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/rounded_white"
+            android:drawableLeft="@drawable/ic_user_icon"
+            android:drawablePadding="5dp"
+            android:hint="Phone"
             android:inputType="phone"
-            app:met_baseColor="@android:color/white"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="11"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true"
-            />
-        <com.rengwuxian.materialedittext.MaterialEditText
+            android:paddingStart="10dp"
+            android:textSize="14sp" />
+
+        <AutoCompleteTextView
             android:id="@+id/pass"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/rounded_white"
+            android:drawableLeft="@drawable/ic_confirm_icon"
+            android:drawablePadding="5dp"
             android:hint="Password"
             android:text="123"
-            android:textColor="@color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="34sp"
             android:inputType="textPassword"
-            app:met_baseColor="@android:color/white"
-            app:met_floatingLabel="highlight"
-            app:met_maxCharacters="11"
-            app:met_primaryColor="@android:color/white"
-            app:met_singleLineEllipsis="true"
+            android:paddingStart="10dp"
+            android:textSize="14sp"
+
             />
+
+        <!--<Button-->
+        <!--android:id="@+id/signUp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginBottom="36dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:background="@drawable/register_button"-->
+        <!--android:paddingLeft="20dp"-->
+        <!--android:paddingRight="20dp"-->
+        <!--android:text="Register"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textStyle="normal" />-->
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="71dp">
+
+        <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+            android:id="@+id/signIn"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_default"
+            app:spinning_bar_color="#FFF"
+            app:spinning_bar_padding="6dp"
+            app:spinning_bar_width="4dp"
+            android:textColor="@android:color/white"
+            android:text="SIGN IN"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/forgotPass"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp" />
+        <Button
+            android:id="@+id/forgotPass"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_default"
+            android:textColor="@android:color/white"
+            android:text="Forgot Password"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+             />
     </LinearLayout>
 
-    <info.hoang8f.widget.FButton
-        android:id="@+id/signIn"
-        android:text="Sign In"
-        android:textColor="@android:color/white"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:buttonColor="@color/signInActive"
-        app:shadowColor="@android:color/black"
-        app:shadowEnabled="true"
-        app:cornerRadius="4dp"
-        app:shadowHeight="5dp"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_alignParentStart="true" />
-    <info.hoang8f.widget.FButton
-        android:id="@+id/forgotPass"
-        android:text="Forgot Passowrd"
-        android:textColor="@android:color/white"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:buttonColor="@color/signInbtn"
-        app:shadowColor="@android:color/black"
-        app:shadowEnabled="true"
-        app:cornerRadius="4dp"
-        app:shadowHeight="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/signIn"
-        android:layout_alignParentStart="true" />
 </RelativeLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@drawable/transprect"-->
+
+        <!--android:orientation="vertical"-->
+        <!--android:weightSum="1"-->
+        <!--android:layout_weight="0.05"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:id="@+id/linearLayout3">-->
+
+
+    <!--<AutoCompleteTextView-->
+            <!--android:id="@+id/phone"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:text="03060342843"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:layout_marginEnd="15dp"-->
+            <!--android:layout_marginStart="15dp"-->
+            <!--android:met_maxCharacters="11"-->
+            <!--android:background="@drawable/rounded_white"-->
+            <!--android:drawableLeft="@drawable/ic_user_icon"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:hint="Phone"-->
+            <!--android:inputType="phone"-->
+            <!--android:met_singleLineEllipsis="true"-->
+            <!--android:paddingStart="10dp"-->
+            <!--android:textSize="14dp" />-->
+
+        <!--<AutoCompleteTextView-->
+            <!--android:id="@+id/pass"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:layout_marginEnd="15dp"-->
+            <!--android:layout_marginStart="15dp"-->
+            <!--android:background="@drawable/rounded_white"-->
+            <!--android:drawableLeft="@drawable/ic_confirm_icon"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:hint="Password"-->
+            <!--android:inputType="textPassword"-->
+            <!--android:paddingStart="10dp"-->
+            <!--android:text="123"-->
+            <!--android:textSize="14dp"-->
+
+            <!--/>-->
+    <!--</LinearLayout>-->
+
+    <!--<br.com.simplepass.loading_button_lib.customViews.CircularProgressButton-->
+        <!--android:id="@+id/signUp"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:background="@drawable/shape_default"-->
+        <!--app:spinning_bar_color="#FFF"-->
+        <!--app:spinning_bar_padding="6dp"-->
+        <!--app:spinning_bar_width="4dp"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:text="Register"-->
+        <!--android:layout_width="250dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/forgotPass"-->
+        <!--android:layout_alignStart="@+id/forgotPass"-->
+        <!--android:layout_marginTop="24dp" />-->
+    <!--<br.com.simplepass.loading_button_lib.customViews.CircularProgressButton-->
+        <!--android:id="@+id/forgotPass"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:background="@drawable/shape_default"-->
+        <!--app:spinning_bar_color="#FFF"-->
+        <!--app:spinning_bar_padding="6dp"-->
+        <!--app:spinning_bar_width="4dp"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:text="Register"-->
+        <!--android:layout_width="250dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="22dp"-->
+        <!--android:layout_below="@+id/linearLayout3"-->
+        <!--android:layout_centerHorizontal="true" />-->
+    <!--&lt;!&ndash;<info.hoang8f.widget.FButton&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/signIn"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="Sign In"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginLeft="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginRight="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:buttonColor="@color/signInActive"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:shadowColor="@android:color/black"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:shadowEnabled="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:cornerRadius="4dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:shadowHeight="5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="35dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_below="@+id/linearLayout2" />&ndash;&gt;-->
+    <!--&lt;!&ndash;<info.hoang8f.widget.FButton&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/forgotPass"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="Forgot Passowrd"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginLeft="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginRight="8dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:buttonColor="@color/signInbtn"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:shadowColor="@android:color/black"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:shadowEnabled="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:cornerRadius="4dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:shadowHeight="5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginTop="20dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_below="@+id/signIn"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_alignParentStart="true" />&ndash;&gt;-->

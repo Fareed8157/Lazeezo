@@ -6,6 +6,9 @@
     <color name="signInbtn">#00796B</color>
     <color name="signInActive">#4CAF50</color>
     <color name="white">#ffffff</color>
+    <color name="flaoting">#00796B</color>
+    <color name="lightOrange">#fdf2df</color>
+    <color name="lightDarkOrange">#ebd6ab</color>
     <color name="overlayBackground">#7f333639</color>
     <color name="overlayActionBar">#0e0d0e</color>
 </resources>

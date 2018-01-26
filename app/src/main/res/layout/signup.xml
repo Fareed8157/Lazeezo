@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/back_1"
+    android:layout_height="match_parent"
+    tools:context="com.example.fareed.lazeezo.SignUp"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="382dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="90dp"
+        android:layout_weight="0.05"
+
+        android:background="@drawable/transprect"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:text="Get Started"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:text="Just a few details to get you started"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/rounded_white"
+            android:drawableLeft="@drawable/ic_user_icon"
+            android:drawablePadding="5dp"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:paddingStart="10dp"
+            android:textSize="14sp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/rounded_white"
+            android:drawableLeft="@drawable/ic_pass_icon"
+            android:drawablePadding="5dp"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:paddingStart="10dp"
+            android:textSize="14sp"
+
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/userEmail"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/rounded_white"
+            android:drawableLeft="@drawable/ic_confirm_icon"
+            android:drawablePadding="5dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:paddingStart="10dp"
+            android:textSize="14sp"
+
+            />
+
+        <AutoCompleteTextView
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/rounded_white"
+            android:drawableLeft="@drawable/ic_confirm_icon"
+            android:drawablePadding="5dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingStart="10dp"
+            android:textSize="14sp"
+
+            />
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0.12"
+            android:button="@drawable/radio_button"
+            android:paddingLeft="5dp"
+            android:text="I agree to the Terms and Conditions"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <!--<Button-->
+        <!--android:id="@+id/signUp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_marginBottom="36dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:background="@drawable/register_button"-->
+        <!--android:paddingLeft="20dp"-->
+        <!--android:paddingRight="20dp"-->
+        <!--android:text="Register"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textStyle="normal" />-->
+        <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+            android:id="@+id/signUp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_default"
+            android:text="Register"
+            android:textColor="@android:color/white"
+            app:spinning_bar_color="#FFF"
+            app:spinning_bar_padding="6dp"
+            app:spinning_bar_width="4dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

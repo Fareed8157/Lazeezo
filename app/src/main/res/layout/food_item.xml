@@ -23,7 +23,7 @@
             android:id="@+id/food_name"
             android:text="Name of Food"
             android:textColor="@android:color/white"
-            android:background="#4f0e0d0e"
+            android:background="#4CAF50"
             android:textSize="20sp"
             android:gravity="center"
             android:layout_alignParentBottom="true"

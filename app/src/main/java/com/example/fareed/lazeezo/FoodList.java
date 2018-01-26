@@ -1,5 +1,6 @@
 package com.example.fareed.lazeezo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,9 +14,11 @@ import com.example.fareed.lazeezo.ViewHolder.FoodViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.liuguangqiang.swipeback.SwipeBackActivity;
+import com.liuguangqiang.swipeback.SwipeBackLayout;
 import com.squareup.picasso.Picasso;
 
-public class FoodList extends AppCompatActivity {
+public class FoodList extends SwipeBackActivity {
 
 
     RecyclerView recyclerView;
@@ -30,6 +33,7 @@ public class FoodList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_list);
+        setDragEdge(SwipeBackLayout.DragEdge.LEFT);
 
 
         //Initialize Database
@@ -65,7 +69,10 @@ public class FoodList extends AppCompatActivity {
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Toast.makeText(FoodList.this, ""+local.getName(), Toast.LENGTH_SHORT).show();
+                        //Starting new activity
+                        Intent foodDetail=new Intent(FoodList.this,FoodDetail.class);
+                        foodDetail.putExtra("FoodId",adapter.getRef(position).getKey());
+                        startActivity(foodDetail);
                     }
                 });
             }

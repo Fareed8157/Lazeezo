@@ -18,10 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
         <TextView
+            android:background="#4CAF50"
             android:id="@+id/menu_name"
             android:text="Name of Menu"
             android:textColor="@android:color/white"
-            android:background="#4f0e0d0e"
             android:textSize="20sp"
             android:gravity="center"
             android:layout_alignParentBottom="true"
