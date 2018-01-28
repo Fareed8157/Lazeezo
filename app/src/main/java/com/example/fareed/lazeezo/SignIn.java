@@ -50,7 +50,7 @@ public class SignIn extends AppCompatActivity {
                     @Override
                     protected String doInBackground(String... strings) {
                         try {
-                            Thread.sleep(3000);
+                            Thread.sleep(1000);
                         }catch (InterruptedException e){
                             e.printStackTrace();
                         }
