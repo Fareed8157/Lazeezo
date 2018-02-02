@@ -1,7 +1,6 @@
 package com.example.fareed.lazeezo;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +9,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.fareed.lazeezo.Common.Common;
 import com.example.fareed.lazeezo.Interface.ItemClickListener;
 import com.example.fareed.lazeezo.Model.Food;
 import com.example.fareed.lazeezo.ViewHolder.FoodViewHolder;
@@ -64,7 +64,12 @@ public class FoodList extends SwipeBackActivity {
         if(getIntent()!=null)
             categoryId=getIntent().getStringExtra("CategoryId");
         if(!categoryId.isEmpty() && categoryId!=null){
-            loadList(categoryId);
+            if(Common.isInternet(getBaseContext()))
+                loadList(categoryId);
+            else{
+                Toast.makeText(FoodList.this, "Internet Connection Failed", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
 
         materialSearchBar=(MaterialSearchBar)findViewById(R.id.searchBar);
@@ -168,7 +173,7 @@ public class FoodList extends SwipeBackActivity {
         adapter=new FirebaseRecyclerAdapter<Food, FoodViewHolder>(Food.class,
                 R.layout.food_item,
                 FoodViewHolder.class,
-                foodList.orderByChild("MenuId").equalTo(categoryId)) {
+                foodList.orderByChild("menuId").equalTo(categoryId)) {
             @Override
             protected void populateViewHolder(FoodViewHolder viewHolder, Food model, int position) {
                 viewHolder.food_name.setText(model.getName());

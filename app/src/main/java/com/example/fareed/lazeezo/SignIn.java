@@ -46,53 +46,59 @@ public class SignIn extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AsyncTask<String,String,String> register=new AsyncTask<String, String, String>() {
-                    @Override
-                    protected String doInBackground(String... strings) {
-                        try {
-                            Thread.sleep(1000);
-                        }catch (InterruptedException e){
-                            e.printStackTrace();
-                        }
-                        return "Done";
-                    }
-                    @Override
-                    protected void onPostExecute(String s) {
-                        if(s.equals("Done")){
-                            userTable.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        //getUser Info here
-                        if(dataSnapshot.child(phone.getText().toString()).exists()){
-                            User user=dataSnapshot.child(phone.getText().toString()).getValue(User.class);
-                            user.setPhone(phone.getText().toString());
-                            if(user.getPassword().equals(pass.getText().toString())){
-                                Intent homeIntent=new Intent(SignIn.this,Home.class);
-                                Common.currentUser=user;
-                                startActivity(homeIntent);
-                                finish();
-
-                            }else{
-                                Toast.makeText(SignIn.this, "Sign In Failed!\nPlease Insert Correct Credentials", Toast.LENGTH_SHORT).show();
+                if (Common.isInternet(getBaseContext())) {
+                    AsyncTask<String, String, String> register = new AsyncTask<String, String, String>() {
+                        @Override
+                        protected String doInBackground(String... strings) {
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
                             }
-
-                        }else{
-                            Toast.makeText(SignIn.this, "User Does not Exist!!\nRegister Your Self", Toast.LENGTH_SHORT).show();
+                            return "Done";
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                    }
-                });
-                            signIn.doneLoadingAnimation(Color.parseColor("#607D8B"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_done_white_48dp));
+                        @Override
+                        protected void onPostExecute(String s) {
+                            if (s.equals("Done")) {
+                                userTable.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        //getUser Info here
+                                        if (dataSnapshot.child(phone.getText().toString()).exists()) {
+                                            User user = dataSnapshot.child(phone.getText().toString()).getValue(User.class);
+                                            user.setPhone(phone.getText().toString());
+                                            if (user.getPassword().equals(pass.getText().toString())) {
+                                                Intent homeIntent = new Intent(SignIn.this, Home.class);
+                                                Common.currentUser = user;
+                                                startActivity(homeIntent);
+                                                finish();
+
+                                            } else {
+                                                Toast.makeText(SignIn.this, "Sign In Failed!\nPlease Insert Correct Credentials", Toast.LENGTH_SHORT).show();
+                                            }
+
+                                        } else {
+                                            Toast.makeText(SignIn.this, "User Does not Exist!!\nRegister Your Self", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                    }
+                                });
+                                signIn.doneLoadingAnimation(Color.parseColor("#607D8B"), BitmapFactory.decodeResource(getResources(), R.drawable.ic_done_white_48dp));
+                            }
+                            super.onPostExecute(s);
                         }
-                        super.onPostExecute(s);
-                    }
-                };
-                signIn.startAnimation();
-                register.execute();
+                    };
+                    signIn.startAnimation();
+                    register.execute();
 //
+                }else{
+                    Toast.makeText(SignIn.this, "Internet Connection Failed", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
         });
 

@@ -11,6 +11,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.fareed.lazeezo.Common.Common;
 import com.example.fareed.lazeezo.Model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,46 +45,51 @@ public class SignUp extends SwipeBackActivity {
 
             @Override
             public void onClick(View v) {
-                AsyncTask<String,String,String> register=new AsyncTask<String, String, String>() {
-                    @Override
-                    protected String doInBackground(String... strings) {
-                        try {
-                            Thread.sleep(3000);
-                        }catch (InterruptedException e){
-                            e.printStackTrace();
+                if(Common.isInternet(getBaseContext())) {
+                    AsyncTask<String, String, String> register = new AsyncTask<String, String, String>() {
+                        @Override
+                        protected String doInBackground(String... strings) {
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            return "Done";
                         }
-                        return "Done";
-                    }
 
-                    @Override
-                    protected void onPostExecute(String s) {
-                        if(s.equals("Done")){
-                            userTable.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    //check if phone already exist or not
-                                    if(dataSnapshot.child(phone.getText().toString()).exists()){
-                                        Toast.makeText(SignUp.this, "Number is Already Registered", Toast.LENGTH_SHORT).show();
-                                    }else{
-                                        User user=new User(name.getText().toString(),pass.getText().toString());
-                                        userTable.child(phone.getText().toString()).setValue(user);
-                                        Toast.makeText(SignUp.this, "Sign Up Successfull!!", Toast.LENGTH_SHORT).show();
-                                        finish();
+                        @Override
+                        protected void onPostExecute(String s) {
+                            if (s.equals("Done")) {
+                                userTable.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        //check if phone already exist or not
+                                        if (dataSnapshot.child(phone.getText().toString()).exists()) {
+                                            Toast.makeText(SignUp.this, "Number is Already Registered", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            User user = new User(name.getText().toString(), pass.getText().toString());
+                                            userTable.child(phone.getText().toString()).setValue(user);
+                                            Toast.makeText(SignUp.this, "Sign Up Successfull!!", Toast.LENGTH_SHORT).show();
+                                            finish();
+                                        }
                                     }
-                                }
 
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
 
-                                }
-                            });
-                            signUp.doneLoadingAnimation(Color.parseColor("#607D8B"), BitmapFactory.decodeResource(getResources(),R.drawable.ic_done_white_48dp));
+                                    }
+                                });
+                                signUp.doneLoadingAnimation(Color.parseColor("#607D8B"), BitmapFactory.decodeResource(getResources(), R.drawable.ic_done_white_48dp));
+                            }
+                            super.onPostExecute(s);
                         }
-                        super.onPostExecute(s);
-                    }
-                };
-                signUp.startAnimation();
-                register.execute();
+                    };
+                    signUp.startAnimation();
+                    register.execute();
+                }else{
+                    Toast.makeText(SignUp.this, "Internet Connection Failed", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
         });
     }

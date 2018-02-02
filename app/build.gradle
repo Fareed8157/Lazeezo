@@ -26,10 +26,7 @@ dependencies {
     })
 
 
-
-
-
-    compile 'com.android.support:design:26.+'
+    compile 'com.stepstone.apprating:app-rating:2.0.0'
     compile 'com.android.support:design:26.+'
     compile 'com.cepheuen.elegant-number-button:lib:1.0.2'
     compile 'com.android.support:appcompat-v7:26.+'
