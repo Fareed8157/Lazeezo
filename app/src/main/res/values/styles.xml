@@ -9,7 +9,7 @@
 
     <!--</style>-->
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="CollapsedAppbar" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">24sp</item>
@@ -24,7 +24,7 @@
 
     <!-- Dialog -->
     <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:background">#ffffff</item>
         <item name="buttonBarPositiveButtonStyle">@style/MyAlertDialogButtonStyle</item>
         <item name="buttonBarNegativeButtonStyle">@style/MyAlertDialogButtonStyle</item>
         <item name="buttonBarNeutralButtonStyle">@style/MyAlertDialogButtonStyle</item>

@@ -8,4 +8,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="facebook_app_id">270258990174601</string>
+    <string name="facebook_login_protocol_name">fb270258990174601</string>
+    <string name="account_kit_client_token">a58c557833cb3afacf186eff6eb64359</string>
 </resources>

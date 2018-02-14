@@ -58,7 +58,7 @@
         android:layout_marginRight="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:buttonColor="@color/signInActive"
+        app:fButtonColor="@color/signInActive"
         app:shadowColor="@android:color/black"
         app:shadowEnabled="true"
         app:cornerRadius="4dp"

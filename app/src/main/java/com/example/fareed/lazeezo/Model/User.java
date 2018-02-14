@@ -9,6 +9,10 @@ public class User {
     private String Password;
     private String Phone;
     private String IsStaff;
+    private String homeAddress;
+    private double balance;
+
+
    public User(){
 
    }
@@ -17,6 +21,15 @@ public class User {
         Name = name;
         Password = password;
         IsStaff="false";
+    }
+
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     public String getIsStaff() {
@@ -49,5 +62,13 @@ public class User {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public String getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
     }
 }

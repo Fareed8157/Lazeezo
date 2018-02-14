@@ -24,7 +24,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 
-public class SignUp extends SwipeBackActivity {
+public class SignUp extends AppCompatActivity {
 
     AutoCompleteTextView phone,name,pass;
     CircularProgressButton signUp;
@@ -32,7 +32,7 @@ public class SignUp extends SwipeBackActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
-        setDragEdge(SwipeBackLayout.DragEdge.LEFT);
+        //setDragEdge(SwipeBackLayout.DragEdge.LEFT);
         signUp=(CircularProgressButton)findViewById(R.id.signUp);
         phone=(AutoCompleteTextView)findViewById(R.id.phone);
         name=(AutoCompleteTextView)findViewById(R.id.name);
