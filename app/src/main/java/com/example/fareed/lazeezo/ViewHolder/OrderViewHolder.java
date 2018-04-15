@@ -15,7 +15,7 @@ import com.example.fareed.lazeezo.R;
 public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
 
-    public TextView txtOrderId,txtOrderStatus,txtOrderPhone,txtOrderAddress;
+    public TextView txtOrderId,txtOrderStatus,txtOrderPhone,txtOrderAddress,txtOrderDate;
     private ItemClickListener itemClickListener;
 
     public OrderViewHolder(View itemView) {
@@ -25,6 +25,8 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         txtOrderStatus=(TextView)itemView.findViewById(R.id.order_status);
         txtOrderPhone=(TextView)itemView.findViewById(R.id.order_phone);
         txtOrderAddress=(TextView)itemView.findViewById(R.id.order_address);
+        txtOrderDate=(TextView)itemView.findViewById(R.id.order_date);
+
 
         itemView.setOnClickListener(this);
     }

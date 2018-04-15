@@ -33,6 +33,7 @@ import com.example.fareed.lazeezo.Common.Common;
 import com.example.fareed.lazeezo.Database.Database;
 import com.example.fareed.lazeezo.Helper.RecyclerItemTouchHelper;
 import com.example.fareed.lazeezo.Interface.RecyclerItemTouchHelperListener;
+import com.example.fareed.lazeezo.Model.DataMessage;
 import com.example.fareed.lazeezo.Model.MyResponse;
 import com.example.fareed.lazeezo.Model.Notification;
 import com.example.fareed.lazeezo.Model.Order;
@@ -62,6 +63,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import org.json.JSONArray;
@@ -242,9 +244,15 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
 
 
             Log.i("onItemSelecte", "onItemSelected: ");
+
+            Double lat=0.0,lng=0.0;
+            if(mLastLocation!=null){
+                 lat= mLastLocation.getLatitude();
+                 lng=mLastLocation.getLongitude();
+            }
             mGoogleMapServices.getAddressName(String.format("https://maps.googleapis.com/maps/api/geocode/json?latlng=%f,%f&sensor=false",
-                    mLastLocation.getLatitude(),
-                    mLastLocation.getLongitude()))
+                   lat,
+                    lng))
                     .enqueue(new Callback<String>() {
                         @Override
                         public void onResponse(Call<String> call, Response<String> response) {
@@ -376,6 +384,11 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
                     NumberFormat fmt=NumberFormat.getCurrencyInstance(locale);
                     //txtTotalPrice.setText(fmt.format(total));
                     double balance=Common.formatCurreny(txtTotalPrice.getText().toString(),locale).doubleValue();
+                    Double lat=0.0,lng=0.0;
+                    if(mLastLocation!=null){
+                        lat= mLastLocation.getLatitude();
+                        lng=mLastLocation.getLongitude();
+                    }
                     if(Common.currentUser.getBalance()>=balance){
                         Request request=new Request(
                                 Common.currentUser.getPhone(),
@@ -386,7 +399,7 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
                                 edtComment.getText().toString(),
                                 "COD",
                                 "Paid",
-                                String.format("%s,%s",mLastLocation.getLatitude(),mLastLocation.getLongitude()),
+                                String.format("%s,%s",lat,lng),
                                 cart
                         );
                         final String order_number=String.valueOf(System.currentTimeMillis());
@@ -494,7 +507,7 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
 
     private void sendNotification(final String order_number) {
         DatabaseReference tokens=FirebaseDatabase.getInstance().getReference("Tokens");
-        Query data=tokens.orderByChild("isServerToken").equalTo(true);
+        final Query data=tokens.orderByChild("isServerToken").equalTo(true);
         data.addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -502,10 +515,17 @@ public class Cart extends AppCompatActivity implements GoogleApiClient.Connectio
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
                     Token serverToken=postSnapshot.getValue(Token.class);
 
-                    Notification notification=new Notification("Lazeezo","You've new Order "+order_number);
-                    Sender content=new Sender(serverToken.getToken(),notification);
+//                    Notification notification=new Notification("Lazeezo","You've new Order "+order_number);
+//                    Sender content=new Sender(serverToken.getToken(),notification);
 
-                    mService.sendNotification(content)
+                    Map<String,String> dataSend=new HashMap<>();
+                    dataSend.put("title","Lazeezo");
+                    dataSend.put("message","You have New Order '"+order_number+"'");
+                    DataMessage dataMessage=new DataMessage(serverToken.getToken(),dataSend);
+
+                    String test=new Gson().toJson(dataMessage);
+
+                    mService.sendNotification(dataMessage)
                             .enqueue(new Callback<MyResponse>() {
                                 @Override
                                 public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {

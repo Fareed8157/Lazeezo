@@ -13,11 +13,15 @@ import com.example.fareed.lazeezo.Remote.RetrofitClient;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 
 public class Common {
     public  static User currentUser;
+
+    public static String PHONE_TEXT="userPhone";
+    public static String topicName="News";
 
     public static final String INTENT_FOOD_ID="FoodId";
     private static final String BASE_URL="https://fcm.googleapis.com/";
@@ -66,5 +70,13 @@ public class Common {
             }
         }
         return null;
+    }
+    public static String getDate(long time){
+        Calendar calendar=Calendar.getInstance(Locale.ENGLISH);
+        calendar.setTimeInMillis(time);
+        StringBuilder date=new StringBuilder(
+                android.text.format.DateFormat.format("dd-MM-yyyy HH:mm",
+                        calendar).toString());
+        return date.toString();
     }
 }
